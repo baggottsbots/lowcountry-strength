@@ -1,0 +1,13 @@
+/* ===== CUSTOM ATHLETIC DESIGN SYSTEM STYLES ===== */
+    .text-stroke-outline {
+      -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+      color: transparent;
+    }
+    .text-stroke-outline:hover {
+      -webkit-text-stroke: 1px #E63946;
+    }
+    /* Smooth transition for focus outlines */
+    *:focus-visible {
+      outline: 2px solid #E63946;
+      outline-offset: 4px;
+    }
