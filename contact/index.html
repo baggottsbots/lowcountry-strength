@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<!-- BASE:START (managed by Coding Agent — do not edit) -->
+<base href="/lowcountry-strength/contact/">
+<!-- BASE:END -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Oswald for bold athletic look, Inter for clean body copy -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+    
+
+<!-- SEO Meta Tags -->
+<title>Claim Your Free 3-Day Pass | Lowcountry Strength Bluffton SC</title>
+<meta name="description" content="Get your free 3-day gym pass at Lowcountry Strength in Bluffton, SC. Start training today with our expert-led strength and conditioning classes. No pressure, no commitment." />
+<meta property="og:title" content="Claim Your Free 3-Day Pass | Lowcountry Strength Bluffton SC" />
+<meta property="og:description" content="Get your free 3-day gym pass at Lowcountry Strength in Bluffton, SC. Start training today with our expert-led strength and conditioning classes. No pressure, no commitment." />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Claim Your Free 3-Day Pass | Lowcountry Strength Bluffton SC" />
+<meta name="twitter:description" content="Get your free 3-day gym pass at Lowcountry Strength in Bluffton, SC. Start training today with our expert-led strength and conditioning classes. No pressure, no commitment." />
+<!-- End SEO Meta Tags -->
+
+<script data-field-replace>
+(function(){
+  var params=new URLSearchParams(window.location.search);
+  var fields={};
+  var paramMap={
+    'first_name':'firstName','last_name':'lastName','full_name':'fullName',
+    'email':'email','phone':'phone','company':'company',
+    'city':'city','state':'state','country':'country'
+  };
+  var skipTags={'SCRIPT':1,'STYLE':1,'NOSCRIPT':1,'TEXTAREA':1,'CODE':1,'PRE':1};
+  var hasUrlFields=false;
+  for(var p in paramMap){
+    var v=params.get(p);
+    if(v){fields[paramMap[p]]=v;hasUrlFields=true;}
+  }
+  var contactId=params.get('contact_id');
+  function esc(s){
+    if(!s)return s;
+    var d=document.createElement('div');
+    d.appendChild(document.createTextNode(s));
+    return d.innerHTML;
+  }
+  function doReplace(data){
+    var r={};
+    r['{{full_name}}']=esc(((data.firstName||'')+' '+(data.lastName||'')).trim()||((data.fullName||data.name)||''));
+    r['{{first_name}}']=esc(data.firstName||(data.name?data.name.split(' ')[0]:'')||'');
+    r['{{last_name}}']=esc(data.lastName||(data.name&&data.name.indexOf(' ')>-1?data.name.substring(data.name.indexOf(' ')+1):'')||'');
+    r['{{email}}']=esc(data.email||'');
+    r['{{phone}}']=esc(data.phone||'');
+    r['{{company}}']=esc(data.company||'');
+    r['{{city}}']=esc(data.city||'');
+    r['{{state}}']=esc(data.state||'');
+    r['{{country}}']=esc(data.country||'');
+    r['{{date}}']=new Date().toLocaleDateString();
+    r['{{time}}']=new Date().toLocaleTimeString();
+    r['{{location}}']=[data.city,data.state,data.country].filter(Boolean).join(', ');
+    r['{{tracking_id}}']=esc(data.trackingId||'');
+    r['{{lastClickedProduct}}']=esc(data.lastClickedProduct||'');
+    r['{{lastProductClickDate}}']=esc(data.lastProductClickDate||'');
+    r['{{lastClickedProductPrice}}']=esc(data.lastClickedProductPrice||'');
+    r['{{lastClickedProductURL}}']=esc(data.lastClickedProductURL||'');
+    r['{{productsClickedCount}}']=esc(data.productsClickedCount||'0');
+    r['{{ip_address}}']=esc(data.ipAddress||'');
+    r['{{ip}}']=esc(data.ipAddress||'');
+    if(data.customFields){
+      for(var k in data.customFields){
+        r['{{'+k+'}}']=esc(String(data.customFields[k]||''));
+      }
+    }
+    params.forEach(function(v,k){
+      if(!paramMap[k]&&k!=='contact_id'&&k!=='page_id'&&k.indexOf('utm_')!==0){
+        r['{{'+k+'}}']=esc(v);
+      }
+    });
+    var hasValues=false;
+    for(var key in r){if(r[key]){hasValues=true;break;}}
+    if(!hasValues)return;
+    var walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{
+      acceptNode:function(n){
+        var p=n.parentNode;
+        if(p&&skipTags[p.nodeName])return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    var node;
+    while(node=walker.nextNode()){
+      var txt=node.nodeValue;
+      if(txt&&txt.indexOf('{{')>-1){
+        var changed=txt;
+        for(var ph in r){
+          if(r[ph]&&changed.indexOf(ph)>-1){
+            changed=changed.split(ph).join(r[ph]);
+          }
+        }
+        if(changed!==txt)node.nodeValue=changed;
+      }
+    }
+    var attrs=['value','placeholder','content','alt','title'];
+    attrs.forEach(function(attr){
+      var els=document.querySelectorAll('['+attr+'*="{{"]');
+      for(var i=0;i<els.length;i++){
+        var tag=els[i].tagName;
+        if(skipTags[tag])continue;
+        var val=els[i].getAttribute(attr);
+        if(val){
+          var nv=val;
+          for(var ph in r){
+            if(r[ph]&&nv.indexOf(ph)>-1){
+              nv=nv.split(ph).join(r[ph]);
+            }
+          }
+          if(nv!==val)els[i].setAttribute(attr,nv);
+        }
+      }
+    });
+  }
+  function run(){
+    if(contactId){
+      var xhr=new XMLHttpRequest();
+      xhr.open('GET','https://paymegpt.com/api/landing/context/'+encodeURIComponent(contactId)+'?page_id=4301');
+      xhr.onload=function(){
+        if(xhr.status===200){
+          try{
+            var resp=JSON.parse(xhr.responseText);
+            if(resp.success&&resp.contact){
+              var merged=resp.contact;
+              for(var k in fields){merged[k]=fields[k];}
+              doReplace(merged);
+              return;
+            }
+          }catch(e){}
+        }
+        if(hasUrlFields)doReplace(fields);
+      };
+      xhr.onerror=function(){if(hasUrlFields)doReplace(fields);};
+      xhr.send();
+    }else if(hasUrlFields){
+      doReplace(fields);
+    }
+  }
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',run);}
+  else{run();}
+})();
+</script>
+<script data-payment>
+(function(){
+  var slug='bn7V93i';
+  var apiBase='https://paymegpt.com';
+  var successSubtext='';var successBtnLabel='Continue';var successBtnColor='#16a34a';var successRedirect='';
+  function findEmail(){
+    var ids=['email','emailAddress','buyer-email','buyerEmail','user-email','userEmail','checkout-email','customer-email','contact-email'];
+    for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value&&el.value.includes('@'))return el.value.trim();}
+    var inputs=document.querySelectorAll('input[type="email"],input[name*="email"],input[placeholder*="email"],input[placeholder*="Email"]');
+    for(var j=0;j<inputs.length;j++){if(inputs[j].value&&inputs[j].value.includes('@'))return inputs[j].value.trim();}
+    return '';
+  }
+  function findName(){
+    var ids=['name','fullName','full-name','buyer-name','buyerName','customer-name','userName','user-name'];
+    for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value)return el.value.trim();}
+    var inputs=document.querySelectorAll('input[name*="name"]:not([name*="email"]):not([type="email"]),input[placeholder*="name"]:not([placeholder*="email"]):not([type="email"]),input[placeholder*="Name"]:not([type="email"])');
+    for(var j=0;j<inputs.length;j++){if(inputs[j].value)return inputs[j].value.trim();}
+    return '';
+  }
+  var __realProcessPayment=function(a,b,c,d,e){
+    var amountCents,email,productName,productDescription,customerName,quantity;
+    if(a&&typeof a==='object'){
+      amountCents=a.amountCents;email=a.email;productName=a.productName;
+      productDescription=a.productDescription||'';customerName=a.name||'';quantity=a.quantity||1;
+    }else{
+      amountCents=typeof a==='number'?a:0;productName=typeof b==='string'?b:'';
+      productDescription=typeof c==='string'?c:'';email='';customerName='';quantity=1;
+    }
+    if(!email)email=findEmail();
+    if(!customerName)customerName=findName();
+    if(!productName){alert('Product name is required.');return Promise.reject('no_product_name');}
+    if(!amountCents||amountCents<100){alert('Amount must be at least $1.00');return Promise.reject('invalid_amount');}
+    if(!email){alert('Please enter your email address.');return Promise.reject('no_email');}
+    var successBase=window.location.href.split('?')[0];
+    var __pLoc=(document.documentElement.lang||navigator.language||'en');
+    return fetch(apiBase+'/api/landing-pages/public/'+slug+'/payment/checkout',{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({email:email,name:customerName,amountCents:amountCents,productName:productName,productDescription:productDescription,quantity:quantity,locale:__pLoc,successUrl:successBase+'?payment=success&product='+encodeURIComponent(productName)+'&session_id={CHECKOUT_SESSION_ID}',cancelUrl:successBase+'?payment=cancelled'})
+    }).then(function(r){return r.json();}).then(function(d){
+      if(d.checkoutUrl){window.location.href=d.checkoutUrl;}
+      else{alert(d.error||'Failed to process payment');throw new Error(d.error);}
+    });
+  };
+  Object.defineProperty(window,'__processPayment',{value:__realProcessPayment,writable:false,configurable:false});
+  document.addEventListener('DOMContentLoaded',function(){
+    var urlParams=new URLSearchParams(window.location.search);
+    if(urlParams.get('payment')==='success'){
+      var pName=urlParams.get('product')||'your item';
+      var overlay=document.createElement('div');overlay.id='payment-success-overlay';
+      overlay.style.cssText='position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;z-index:999999;font-family:system-ui,-apple-system,sans-serif;';
+      function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+      var subTxt=successSubtext||('Thank you for purchasing '+pName+'.');
+      overlay.innerHTML='<div style="background:white;border-radius:16px;padding:40px;max-width:420px;width:90%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.15);"><div style="width:64px;height:64px;border-radius:50%;background:#dcfce7;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><h2 style="margin:0 0 12px;font-size:24px;font-weight:700;color:#111827;">Payment Successful!</h2><p style="margin:0 0 24px;color:#6b7280;font-size:16px;">'+esc(subTxt)+'</p><button id="lp-pay-success-btn" style="padding:12px 32px;font-size:16px;font-weight:600;background:'+successBtnColor+';color:white;border:none;border-radius:8px;cursor:pointer;">'+esc(successBtnLabel)+'</button></div>';
+      document.body.appendChild(overlay);
+      var pBtn=document.getElementById('lp-pay-success-btn');
+      if(pBtn){pBtn.addEventListener('click',function(){if(successRedirect){window.location.href=successRedirect;}else{overlay.remove();window.history.replaceState({},'',window.location.pathname);}});}
+    }
+  });
+})();
+</script>  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-[#1A1A1A] text-white flex flex-col min-h-screen antialiased">
+
+<!-- ============================================================================ -->
+<!-- NAVBAR: Top navigation bar with active states & responsive mobile menu       -->
+<!-- ============================================================================ -->
+<nav data-section="navbar" class="sticky top-0 z-50 bg-[#1A1A1A]/95 backdrop-blur-md border-b border-zinc-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+            <!-- Brand Logo -->
+            <div class="flex-shrink-0">
+                <a href="index.html" class="flex items-center space-x-2">
+                    <span class="font-oswald text-2xl sm:text-3xl font-bold tracking-wider text-white">
+                        LOWCOUNTRY <span class="text-[#E63946]">STRENGTH</span>
+                    </span>
+                </a>
+            </div>
+
+            <!-- Desktop Nav Links -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="text-zinc-400 hover:text-white transition-colors duration-200 uppercase tracking-widest text-xs font-semibold">Home</a>
+                <a href="classes.html" class="text-zinc-400 hover:text-white transition-colors duration-200 uppercase tracking-widest text-xs font-semibold">Classes</a>
+                <a href="contact.html" class="text-[#E63946] border-b-2 border-[#E63946] pb-1 uppercase tracking-widest text-xs font-semibold">Contact &amp; Pass</a>
+            </div>
+
+            <!-- Hamburger Button -->
+            <div class="md:hidden">
+                <button id="menu-btn" type="button" class="text-zinc-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-[#E63946] p-2 rounded-md" aria-label="Toggle Menu">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-[#242424] border-b border-zinc-800">
+        <div class="px-2 pt-2 pb-4 space-y-1 sm:px-3">
+            <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-zinc-300 hover:bg-zinc-800 hover:text-white">Home</a>
+            <a href="classes.html" class="block px-3 py-2 rounded-md text-base font-medium text-zinc-300 hover:bg-zinc-800 hover:text-white">Classes</a>
+            <a href="contact.html" class="block px-3 py-2 rounded-md text-base font-medium text-white bg-zinc-800">Contact &amp; Pass</a>
+        </div>
+    </div>
+</nav>
+
+<!-- ============================================================================ -->
+<!-- PAGE HEADER / HERO: Claim Your Free 3-Day Pass Headline                      -->
+<!-- ============================================================================ -->
+<section data-section="hero" class="relative py-16 md:py-24 bg-gradient-to-b from-zinc-900 to-[#1A1A1A] overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(230,57,70,0.08),transparent_50%)]"></div>
+    <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8 relative z-10">
+        <span class="inline-block bg-[#E63946]/10 text-[#E63946] font-semibold text-xs uppercase tracking-widest px-4 py-1.5 rounded-full border border-[#E63946]/20 mb-6">
+            Bluffton's Premier Gym
+        </span>
+        <h1 class="font-oswald text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white mb-6 uppercase leading-tight">
+            Claim Your <span class="text-[#E63946]">Free 3-Day Pass</span>
+        </h1>
+        <p class="text-lg sm:text-xl text-zinc-300 max-w-2xl mx-auto font-light leading-relaxed">
+            No pressure. No long-term commitments. Just hard work, top-tier equipment, and a local community that will push you to your absolute best. Come train with us.
+        </p>
+    </div>
+</section>
+
+<!-- ============================================================================ -->
+<!-- CONTACT & LEAD CAPTURE: Split Layout with Form & Gym Information Block     -->
+<!-- ============================================================================ -->
+<section data-section="contact-form" class="py-12 md:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        
+        <!-- Form Column (7 Cols on large screen) -->
+        <div class="lg:col-span-7 bg-[#242424] rounded-2xl border border-zinc-800 p-6 sm:p-10 shadow-xl relative">
+            <div id="lead-form-container">
+                <h2 class="font-oswald text-2xl sm:text-3xl font-bold uppercase tracking-wide text-white mb-2">Get Started Now</h2>
+                <p class="text-zinc-400 mb-8 text-sm sm:text-base">Fill out your details below. We'll secure your pass and prepare your onboarding instantly.</p>
+                
+                <form id="lead-form" class="space-y-6">
+                    <!-- Hidden Field -->
+                    <input type="hidden" name="source" value="Contact Page">
+
+                    <!-- Name Field -->
+                    <div>
+                        <label for="contactName" class="block text-xs font-semibold uppercase tracking-widest text-zinc-400 mb-2">Full Name <span class="text-[#E63946]">*</span></label>
+                        <input type="text" id="contactName" name="contactName" required 
+                            placeholder="e.g. Marcus Miller" 
+                            class="w-full bg-[#1A1A1A] border border-zinc-800 rounded-lg py-3 px-4 text-white placeholder-zinc-600 focus:outline-none focus:ring-2 focus:ring-[#E63946] focus:border-transparent transition-all duration-200">
+                    </div>
+
+                    <!-- Email & Phone Dual Row (Grid on larger viewports) -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="contactEmail" class="block text-xs font-semibold uppercase tracking-widest text-zinc-400 mb-2">Email Address <span class="text-[#E63946]">*</span></label>
+                            <input type="email" id="contactEmail" name="contactEmail" required 
+                                placeholder="e.g. marcus@gmail.com" 
+                                class="w-full bg-[#1A1A1A] border border-zinc-800 rounded-lg py-3 px-4 text-white placeholder-zinc-600 focus:outline-none focus:ring-2 focus:ring-[#E63946] focus:border-transparent transition-all duration-200">
+                        </div>
+                        <div>
+                            <label for="contactPhone" class="block text-xs font-semibold uppercase tracking-widest text-zinc-400 mb-2">Phone Number <span class="text-[#E63946]">*</span></label>
+                            <input type="tel" id="contactPhone" name="contactPhone" required 
+                                placeholder="e.g. (843) 555-0199" 
+                                class="w-full bg-[#1A1A1A] border border-zinc-800 rounded-lg py-3 px-4 text-white placeholder-zinc-600 focus:outline-none focus:ring-2 focus:ring-[#E63946] focus:border-transparent transition-all duration-200">
+                        </div>
+                    </div>
+
+                    <!-- Dropdowns Row -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="goal" class="block text-xs font-semibold uppercase tracking-widest text-zinc-400 mb-2">Main Fitness Goal</label>
+                            <select id="goal" name="goal" 
+                                class="w-full bg-[#1A1A1A] border border-zinc-800 rounded-lg py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-[#E63946] focus:border-transparent transition-all duration-200">
+                                <option value="Get Stronger">Get Stronger</option>
+                                <option value="Build Muscle">Build Muscle</option>
+                                <option value="Lose Weight">Lose Weight</option>
+                                <option value="General Fitness">General Fitness</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="membershipInterest" class="block text-xs font-semibold uppercase tracking-widest text-zinc-400 mb-2">Membership Interest</label>
+                            <select id="membershipInterest" name="membershipInterest" 
+                                class="w-full bg-[#1A1A1A] border border-zinc-800 rounded-lg py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-[#E63946] focus:border-transparent transition-all duration-200">
+                                <option value="Free Trial Pass">Free 3-Day Pass</option>
+                                <option value="Monthly Membership">Monthly Membership</option>
+                                <option value="Annual Membership">Annual Membership</option>
+                                <option value="Class Pack">Class Pack</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" id="submit-btn" class="w-full bg-[#E63946] hover:bg-[#C52233] text-white font-oswald text-lg font-bold uppercase tracking-wider py-4 rounded-lg shadow-lg transition-all duration-300 transform active:scale-[0.98] flex items-center justify-center space-x-2">
+                        <span id="submit-text">Get My Free Pass</span>
+                        <svg id="submit-spinner" class="animate-spin h-5 w-5 text-white hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                    </button>
+                    
+                    <!-- Form Error Placeholder -->
+                    <p id="error-message" class="text-[#E63946] text-sm text-center font-medium hidden"></p>
+                </form>
+            </div>
+
+            <!-- Styled Success State Card (Hidden initially) -->
+            <div id="success-message" class="hidden text-center py-12 px-4">
+                <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-emerald-500/10 text-emerald-500 mb-6 border border-emerald-500/20">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                    </svg>
+                </div>
+                <h3 class="font-oswald text-3xl font-bold uppercase tracking-wide mb-3 text-white">Your Pass Is Confirmed!</h3>
+                <p class="text-zinc-300 max-w-md mx-auto mb-8 text-sm sm:text-base leading-relaxed">
+                    Check your inbox. We've sent your digital 3-day pass confirmation. Bring it on your phone for your first workout session!
+                </p>
+                <div class="inline-block bg-zinc-800/80 border border-zinc-700/50 rounded-lg p-4 text-left max-w-sm mx-auto">
+                    <p class="text-xs font-bold text-[#E63946] uppercase tracking-widest mb-1">What's Next?</p>
+                    <p class="text-xs text-zinc-400 leading-normal">Our team will call or text you shortly to schedule your quick 5-minute gym tour and get you keycard access!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Info / Location Column (5 Cols on large screen) -->
+        <div class="lg:col-span-5 space-y-8">
+            <!-- Gym hours and info block -->
+            <div class="bg-[#242424] rounded-2xl border border-zinc-800 p-6 sm:p-8 space-y-6">
+                <h3 class="font-oswald text-xl font-bold uppercase tracking-wider text-white border-b border-zinc-800 pb-3">Gym Details</h3>
+                
+                <div class="space-y-4">
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 text-[#E63946] mt-1">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        </div>
+                        <div>
+                            <h4 class="text-xs font-semibold text-zinc-400 uppercase tracking-widest">Location</h4>
+                            <p class="text-sm font-semibold text-white mt-0.5">70 Innovation Dr, Bluffton, SC 29910</p>
+                            <p class="text-xs text-zinc-400 mt-1">Free on-site parking available</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 text-[#E63946] mt-1">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        </div>
+                        <div>
+                            <h4 class="text-xs font-semibold text-zinc-400 uppercase tracking-widest">Hours of Operation</h4>
+                            <div class="grid grid-cols-2 gap-x-4 gap-y-1 text-sm font-semibold text-white mt-1">
+                                <div>Mon - Fri:</div>
+                                <div>5:00 AM - 10:00 PM</div>
+                                <div>Sat - Sun:</div>
+                                <div>7:00 AM - 7:00 PM</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 text-[#E63946] mt-1">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                        </div>
+                        <div>
+                            <h4 class="text-xs font-semibold text-zinc-400 uppercase tracking-widest">Contact Directly</h4>
+                            <p class="text-sm font-semibold text-white mt-0.5">info@lowcountrystrength.com</p>
+                            <p class="text-sm font-semibold text-white">(843) 555-0199</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-zinc-800/40 p-4 rounded-lg border border-zinc-700/30">
+                    <p class="text-xs text-zinc-400 leading-relaxed italic">
+                        "We run a high-energy facility. When you apply for a pass, one of our coaches will reach out to ensure we align you with the right session style from day one."
+                    </p>
+                </div>
+            </div>
+
+            <!-- Stylized dark theme embedded map -->
+            <div class="rounded-2xl overflow-hidden border border-zinc-800 shadow-xl h-64 relative bg-zinc-900">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3372.7483665796796!2d-80.8660424234739!3d32.237240311543885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88fc79860b73b2cb%3A0x67db495ba3ef8169!2sBluffton%2C%20SC!5e0!3m2!1sen!2sus!4v1710000000000!5m2!1sen!2sus" class="w-full h-full border-none filter invert grayscale contrast-125 opacity-80" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <div class="absolute bottom-3 left-3 bg-[#1A1A1A]/90 backdrop-blur border border-zinc-800 rounded px-3 py-1.5 text-xs font-semibold text-white flex items-center space-x-1.5 shadow">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <span>Lowcountry Strength</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ============================================================================ -->
+<!-- TESTIMONIALS: Social proof specifically about first-time visitors / passes   -->
+<!-- ============================================================================ -->
+<section data-section="testimonials" class="bg-[#242424] py-16 md:py-24 border-t border-zinc-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+            <h2 class="font-oswald text-3xl sm:text-4xl font-bold uppercase tracking-tight text-white mb-4">
+                What to Expect on <span class="text-[#E63946]">Day One</span>
+            </h2>
+            <p class="text-zinc-400 font-light">See what other Bluffton locals say about starting out with our 3-Day Pass.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Testimonial 1 -->
+            <div class="bg-[#1A1A1A] border border-zinc-800/80 p-8 rounded-xl flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center space-x-1 text-[#E63946] mb-4">
+                        <!-- 5 Star Icons -->
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    </div>
+                    <p class="text-zinc-300 text-sm leading-relaxed mb-6">
+                        "I was nervous to step into a strength gym as a complete beginner, but the 3-day pass was absolutely zero pressure. The coaches introduced themselves right away and tailored every weight to my current capacity."
+                    </p>
+                </div>
+                <div>
+                    <p class="font-oswald text-sm font-semibold text-white uppercase tracking-wider">Sarah K.</p>
+                    <p class="text-xs text-zinc-500">Bluffton Resident</p>
+                </div>
+            </div>
+
+            <!-- Testimonial 2 -->
+            <div class="bg-[#1A1A1A] border border-zinc-800/80 p-8 rounded-xl flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center space-x-1 text-[#E63946] mb-4">
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    </div>
+                    <p class="text-zinc-300 text-sm leading-relaxed mb-6">
+                        "The equipment here is world-class. Rogue bars, calibrated plates, and tons of squat racks. Getting a 3-day pass let me test out the peak hours. It never feels overcrowded because they manage capacity so well."
+                    </p>
+                </div>
+                <div>
+                    <p class="font-oswald text-sm font-semibold text-white uppercase tracking-wider">David M.</p>
+                    <p class="text-xs text-zinc-500">Competitive Powerlifter</p>
+                </div>
+            </div>
+
+            <!-- Testimonial 3 -->
+            <div class="bg-[#1A1A1A] border border-zinc-800/80 p-8 rounded-xl flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center space-x-1 text-[#E63946] mb-4">
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    </div>
+                    <p class="text-zinc-300 text-sm leading-relaxed mb-6">
+                        "Unbelievable training environment. The culture is completely focused on building each other up. If you are serious about changing your fitness in Bluffton, this is the gym."
+                    </p>
+                </div>
+                <div>
+                    <p class="font-oswald text-sm font-semibold text-white uppercase tracking-wider">John L.</p>
+                    <p class="text-xs text-zinc-500">Local Firefighter</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================================ -->
+<!-- FAQ SECTION: Addressing barriers to claim the pass                          -->
+<!-- ============================================================================ -->
+<section data-section="faq" class="py-16 md:py-24 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+        <h2 class="font-oswald text-3xl sm:text-4xl font-bold uppercase tracking-tight text-white mb-4">
+            Frequently Asked Questions
+        </h2>
+        <p class="text-zinc-400 font-light">Everything you need to know about your 3-Day Pass.</p>
+    </div>
+
+    <div class="space-y-6">
+        <!-- Question 1 -->
+        <div class="bg-[#242424] border border-zinc-800 rounded-xl p-6">
+            <h3 class="font-semibold text-white mb-2 text-base sm:text-lg">Are there any hidden fees or credit cards required for the trial?</h3>
+            <p class="text-zinc-400 text-sm leading-relaxed">No. We don't ask for a credit card. The trial pass is 100% free and without obligation. We want you to experience our gym first.</p>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="bg-[#242424] border border-zinc-800 rounded-xl p-6">
+            <h3 class="font-semibold text-white mb-2 text-base sm:text-lg">Does the 3-day pass have to be used on consecutive days?</h3>
+            <p class="text-zinc-400 text-sm leading-relaxed">We recommend using it within a 7-day period so you can experience different class layouts and coaching styles. We are highly flexible.</p>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="bg-[#242424] border border-zinc-800 rounded-xl p-6">
+            <h3 class="font-semibold text-white mb-2 text-base sm:text-lg">Can I attend any class style with my pass?</h3>
+            <p class="text-zinc-400 text-sm leading-relaxed">Yes! You can attend any of our scheduled strength, conditioning, or barbell classes during your 3-day trial period.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================================ -->
+<!-- FOOTER: Standardized footer with navigation & local branding                 -->
+<!-- ============================================================================ -->
+<footer data-section="footer" class="bg-[#121212] border-t border-zinc-900 py-12 px-4 sm:px-6 lg:px-8 mt-auto">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+        
+        <!-- Logo Branding -->
+        <div class="text-center md:text-left">
+            <span class="font-oswald text-xl sm:text-2xl font-bold tracking-wider text-white">
+                LOWCOUNTRY <span class="text-[#E63946]">STRENGTH</span>
+            </span>
+            <p class="text-xs text-zinc-500 mt-1 uppercase tracking-widest font-semibold">Bluffton, SC</p>
+        </div>
+
+        <!-- Repeated Minimal Nav Links (Internal Only) -->
+        <div class="flex items-center space-x-6">
+            <a href="index.html" class="text-zinc-400 hover:text-white transition-colors text-xs uppercase tracking-widest font-medium">Home</a>
+            <a href="classes.html" class="text-zinc-400 hover:text-white transition-colors text-xs uppercase tracking-widest font-medium">Classes</a>
+            <a href="contact.html" class="text-white transition-colors text-xs uppercase tracking-widest font-medium">Contact &amp; Pass</a>
+        </div>
+
+        <!-- Copyright Info -->
+        <div class="text-center md:text-right text-xs text-zinc-600">
+            <p>&copy; 2026 Lowcountry Strength. All Rights Reserved.</p>
+            <p class="mt-1">Designed for community, strength &amp; power.</p>
+        </div>
+        
+    </div>
+</footer>
+
+<!-- ============================================================================ -->
+<!-- JAVASCRIPT: Mobile navbar trigger & Lead capturing Form POST                -->
+<!-- ============================================================================ -->
+<script>
+    // ===== MOBILE MENU TOGGLE =====
+    // Function: toggleMobileMenu()
+    // Purpose: Handles hamburger click menu display state
+    // Triggers: Click event on menu-btn
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+
+    // ===== LEAD FORM WEBHOOK INTEGRATION =====
+    // Function: handleFormSubmit()
+    // Purpose: Submits contact form data as JSON via AJAX fetch
+    // Webhook Target: https://paymegpt.com/api/webhooks/flow/3263/968286eda13e49667cb3dc1e90cf9c22f0ca84d5910c0228610b381e0bbd9f43
+    document.getElementById('lead-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const submitBtn = document.getElementById('submit-btn');
+        const submitText = document.getElementById('submit-text');
+        const submitSpinner = document.getElementById('submit-spinner');
+        const successMessage = document.getElementById('success-message');
+        const errorMessage = document.getElementById('error-message');
+
+        // Toggle Processing States
+        submitBtn.disabled = true;
+        submitText.textContent = "Securing Your Pass...";
+        submitSpinner.classList.remove('hidden');
+        errorMessage.classList.add('hidden');
+
+        // Extract and map form values
+        const formData = new FormData(this);
+        const nameValue = formData.get('contactName');
+        const emailValue = formData.get('contactEmail');
+        const phoneValue = formData.get('contactPhone');
+        const goalValue = formData.get('goal');
+        const membershipValue = formData.get('membershipInterest');
+        const sourceValue = formData.get('source');
+
+        // POST request payload configuration
+        fetch("https://paymegpt.com/api/webhooks/flow/3263/968286eda13e49667cb3dc1e90cf9c22f0ca84d5910c0228610b381e0bbd9f43", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                contactEmail: emailValue,
+                contactName: nameValue,
+                contactPhone: phoneValue,
+                data: {
+                    goal: goalValue,
+                    membershipInterest: membershipValue,
+                    source: sourceValue
+                }
+            })
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Lead submission failed. Please try again.");
+            }
+            return response.json();
+        })
+        .then(result => {
+            // Success response: Transition form display block to success block
+            document.getElementById('lead-form-container').classList.add('hidden');
+            successMessage.classList.remove('hidden');
+            successMessage.scrollIntoView({ behavior: 'smooth' });
+        })
+        .catch(err => {
+            // Fail response: Reinstate CTA controls and output inline warning
+            errorMessage.textContent = "Something went wrong. Please check your network or try again.";
+            errorMessage.classList.remove('hidden');
+            submitBtn.disabled = false;
+            submitText.textContent = "Get My Free Pass";
+            submitSpinner.classList.add('hidden');
+        });
+    });
+</script>
+
+</body>
+</html>
