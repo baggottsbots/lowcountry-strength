@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<!-- BASE:START (managed by Coding Agent — do not edit) -->
+<base href="/lowcountry-strength/">
+<!-- BASE:END -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <!-- Tailwind Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts for Bold Athletic Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  
+
+  
+
+<!-- SEO Meta Tags -->
+<title>Lowcountry Strength | Community Gym in Bluffton, SC</title>
+<meta name="description" content="Welcome to Bluffton's premier strength training facility. Claim your free 3-day pass today and experience elite equipment, group classes, and personal training." />
+<meta property="og:title" content="Lowcountry Strength | Community Gym in Bluffton, SC" />
+<meta property="og:description" content="Welcome to Bluffton's premier strength training facility. Claim your free 3-day pass today and experience elite equipment, group classes, and personal training." />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Lowcountry Strength | Community Gym in Bluffton, SC" />
+<meta name="twitter:description" content="Welcome to Bluffton's premier strength training facility. Claim your free 3-day pass today and experience elite equipment, group classes, and personal training." />
+<!-- End SEO Meta Tags -->
+
+<script data-field-replace>
+(function(){
+  var params=new URLSearchParams(window.location.search);
+  var fields={};
+  var paramMap={
+    'first_name':'firstName','last_name':'lastName','full_name':'fullName',
+    'email':'email','phone':'phone','company':'company',
+    'city':'city','state':'state','country':'country'
+  };
+  var skipTags={'SCRIPT':1,'STYLE':1,'NOSCRIPT':1,'TEXTAREA':1,'CODE':1,'PRE':1};
+  var hasUrlFields=false;
+  for(var p in paramMap){
+    var v=params.get(p);
+    if(v){fields[paramMap[p]]=v;hasUrlFields=true;}
+  }
+  var contactId=params.get('contact_id');
+  function esc(s){
+    if(!s)return s;
+    var d=document.createElement('div');
+    d.appendChild(document.createTextNode(s));
+    return d.innerHTML;
+  }
+  function doReplace(data){
+    var r={};
+    r['{{full_name}}']=esc(((data.firstName||'')+' '+(data.lastName||'')).trim()||((data.fullName||data.name)||''));
+    r['{{first_name}}']=esc(data.firstName||(data.name?data.name.split(' ')[0]:'')||'');
+    r['{{last_name}}']=esc(data.lastName||(data.name&&data.name.indexOf(' ')>-1?data.name.substring(data.name.indexOf(' ')+1):'')||'');
+    r['{{email}}']=esc(data.email||'');
+    r['{{phone}}']=esc(data.phone||'');
+    r['{{company}}']=esc(data.company||'');
+    r['{{city}}']=esc(data.city||'');
+    r['{{state}}']=esc(data.state||'');
+    r['{{country}}']=esc(data.country||'');
+    r['{{date}}']=new Date().toLocaleDateString();
+    r['{{time}}']=new Date().toLocaleTimeString();
+    r['{{location}}']=[data.city,data.state,data.country].filter(Boolean).join(', ');
+    r['{{tracking_id}}']=esc(data.trackingId||'');
+    r['{{lastClickedProduct}}']=esc(data.lastClickedProduct||'');
+    r['{{lastProductClickDate}}']=esc(data.lastProductClickDate||'');
+    r['{{lastClickedProductPrice}}']=esc(data.lastClickedProductPrice||'');
+    r['{{lastClickedProductURL}}']=esc(data.lastClickedProductURL||'');
+    r['{{productsClickedCount}}']=esc(data.productsClickedCount||'0');
+    r['{{ip_address}}']=esc(data.ipAddress||'');
+    r['{{ip}}']=esc(data.ipAddress||'');
+    if(data.customFields){
+      for(var k in data.customFields){
+        r['{{'+k+'}}']=esc(String(data.customFields[k]||''));
+      }
+    }
+    params.forEach(function(v,k){
+      if(!paramMap[k]&&k!=='contact_id'&&k!=='page_id'&&k.indexOf('utm_')!==0){
+        r['{{'+k+'}}']=esc(v);
+      }
+    });
+    var hasValues=false;
+    for(var key in r){if(r[key]){hasValues=true;break;}}
+    if(!hasValues)return;
+    var walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{
+      acceptNode:function(n){
+        var p=n.parentNode;
+        if(p&&skipTags[p.nodeName])return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    var node;
+    while(node=walker.nextNode()){
+      var txt=node.nodeValue;
+      if(txt&&txt.indexOf('{{')>-1){
+        var changed=txt;
+        for(var ph in r){
+          if(r[ph]&&changed.indexOf(ph)>-1){
+            changed=changed.split(ph).join(r[ph]);
+          }
+        }
+        if(changed!==txt)node.nodeValue=changed;
+      }
+    }
+    var attrs=['value','placeholder','content','alt','title'];
+    attrs.forEach(function(attr){
+      var els=document.querySelectorAll('['+attr+'*="{{"]');
+      for(var i=0;i<els.length;i++){
+        var tag=els[i].tagName;
+        if(skipTags[tag])continue;
+        var val=els[i].getAttribute(attr);
+        if(val){
+          var nv=val;
+          for(var ph in r){
+            if(r[ph]&&nv.indexOf(ph)>-1){
+              nv=nv.split(ph).join(r[ph]);
+            }
+          }
+          if(nv!==val)els[i].setAttribute(attr,nv);
+        }
+      }
+    });
+  }
+  function run(){
+    if(contactId){
+      var xhr=new XMLHttpRequest();
+      xhr.open('GET','https://paymegpt.com/api/landing/context/'+encodeURIComponent(contactId)+'?page_id=4299');
+      xhr.onload=function(){
+        if(xhr.status===200){
+          try{
+            var resp=JSON.parse(xhr.responseText);
+            if(resp.success&&resp.contact){
+              var merged=resp.contact;
+              for(var k in fields){merged[k]=fields[k];}
+              doReplace(merged);
+              return;
+            }
+          }catch(e){}
+        }
+        if(hasUrlFields)doReplace(fields);
+      };
+      xhr.onerror=function(){if(hasUrlFields)doReplace(fields);};
+      xhr.send();
+    }else if(hasUrlFields){
+      doReplace(fields);
+    }
+  }
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',run);}
+  else{run();}
+})();
+</script>
+<script data-payment>
+(function(){
+  var slug='A2pWv3Wa';
+  var apiBase='https://paymegpt.com';
+  var successSubtext='';var successBtnLabel='Continue';var successBtnColor='#16a34a';var successRedirect='';
+  function findEmail(){
+    var ids=['email','emailAddress','buyer-email','buyerEmail','user-email','userEmail','checkout-email','customer-email','contact-email'];
+    for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value&&el.value.includes('@'))return el.value.trim();}
+    var inputs=document.querySelectorAll('input[type="email"],input[name*="email"],input[placeholder*="email"],input[placeholder*="Email"]');
+    for(var j=0;j<inputs.length;j++){if(inputs[j].value&&inputs[j].value.includes('@'))return inputs[j].value.trim();}
+    return '';
+  }
+  function findName(){
+    var ids=['name','fullName','full-name','buyer-name','buyerName','customer-name','userName','user-name'];
+    for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value)return el.value.trim();}
+    var inputs=document.querySelectorAll('input[name*="name"]:not([name*="email"]):not([type="email"]),input[placeholder*="name"]:not([placeholder*="email"]):not([type="email"]),input[placeholder*="Name"]:not([type="email"])');
+    for(var j=0;j<inputs.length;j++){if(inputs[j].value)return inputs[j].value.trim();}
+    return '';
+  }
+  var __realProcessPayment=function(a,b,c,d,e){
+    var amountCents,email,productName,productDescription,customerName,quantity;
+    if(a&&typeof a==='object'){
+      amountCents=a.amountCents;email=a.email;productName=a.productName;
+      productDescription=a.productDescription||'';customerName=a.name||'';quantity=a.quantity||1;
+    }else{
+      amountCents=typeof a==='number'?a:0;productName=typeof b==='string'?b:'';
+      productDescription=typeof c==='string'?c:'';email='';customerName='';quantity=1;
+    }
+    if(!email)email=findEmail();
+    if(!customerName)customerName=findName();
+    if(!productName){alert('Product name is required.');return Promise.reject('no_product_name');}
+    if(!amountCents||amountCents<100){alert('Amount must be at least $1.00');return Promise.reject('invalid_amount');}
+    if(!email){alert('Please enter your email address.');return Promise.reject('no_email');}
+    var successBase=window.location.href.split('?')[0];
+    var __pLoc=(document.documentElement.lang||navigator.language||'en');
+    return fetch(apiBase+'/api/landing-pages/public/'+slug+'/payment/checkout',{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({email:email,name:customerName,amountCents:amountCents,productName:productName,productDescription:productDescription,quantity:quantity,locale:__pLoc,successUrl:successBase+'?payment=success&product='+encodeURIComponent(productName)+'&session_id={CHECKOUT_SESSION_ID}',cancelUrl:successBase+'?payment=cancelled'})
+    }).then(function(r){return r.json();}).then(function(d){
+      if(d.checkoutUrl){window.location.href=d.checkoutUrl;}
+      else{alert(d.error||'Failed to process payment');throw new Error(d.error);}
+    });
+  };
+  Object.defineProperty(window,'__processPayment',{value:__realProcessPayment,writable:false,configurable:false});
+  document.addEventListener('DOMContentLoaded',function(){
+    var urlParams=new URLSearchParams(window.location.search);
+    if(urlParams.get('payment')==='success'){
+      var pName=urlParams.get('product')||'your item';
+      var overlay=document.createElement('div');overlay.id='payment-success-overlay';
+      overlay.style.cssText='position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;z-index:999999;font-family:system-ui,-apple-system,sans-serif;';
+      function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+      var subTxt=successSubtext||('Thank you for purchasing '+pName+'.');
+      overlay.innerHTML='<div style="background:white;border-radius:16px;padding:40px;max-width:420px;width:90%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.15);"><div style="width:64px;height:64px;border-radius:50%;background:#dcfce7;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><h2 style="margin:0 0 12px;font-size:24px;font-weight:700;color:#111827;">Payment Successful!</h2><p style="margin:0 0 24px;color:#6b7280;font-size:16px;">'+esc(subTxt)+'</p><button id="lp-pay-success-btn" style="padding:12px 32px;font-size:16px;font-weight:600;background:'+successBtnColor+';color:white;border:none;border-radius:8px;cursor:pointer;">'+esc(successBtnLabel)+'</button></div>';
+      document.body.appendChild(overlay);
+      var pBtn=document.getElementById('lp-pay-success-btn');
+      if(pBtn){pBtn.addEventListener('click',function(){if(successRedirect){window.location.href=successRedirect;}else{overlay.remove();window.history.replaceState({},'',window.location.pathname);}});}
+    }
+  });
+})();
+</script>  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-charcoal text-white font-sans antialiased overflow-x-hidden selection:bg-brandRed selection:text-white">
+
+  <!-- ============================================================================ -->
+  <!-- NAVIGATION BAR                                                               -->
+  <!-- Features: Sticky, blurred backdrop, mobile burger menu, explicit HTML links  -->
+  <!-- ============================================================================ -->
+  <nav data-section="navbar" class="sticky top-0 z-50 bg-charcoal/90 backdrop-blur-md border-b border-white/10 px-4 py-4 md:px-8 lg:px-12 transition-all duration-300">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <!-- Logo / Identity -->
+      <a href="index.html" class="flex items-center space-x-2 focus:outline-none" aria-label="Lowcountry Strength Home">
+        <span class="font-display text-2xl md:text-3xl font-extrabold tracking-wider italic text-white flex items-center">
+          LOWCOUNTRY<span class="text-brandRed">STRENGTH</span>
+        </span>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <ul class="hidden md:flex items-center space-x-8 font-display text-lg tracking-wider uppercase">
+        <li>
+          <a href="index.html" class="text-brandRed border-b-2 border-brandRed pb-1 transition-all duration-200">Home</a>
+        </li>
+        <li>
+          <a href="classes.html" class="text-gray-300 hover:text-white hover:border-b-2 hover:border-brandRed pb-1 transition-all duration-200">Classes</a>
+        </li>
+        <li>
+          <a href="contact.html" class="text-gray-300 hover:text-white hover:border-b-2 hover:border-brandRed pb-1 transition-all duration-200">Contact</a>
+        </li>
+      </ul>
+
+      <!-- Primary CTA - Desktop -->
+      <div class="hidden md:block">
+        <a href="contact.html" class="bg-brandRed hover:bg-brandRed-hover text-white font-display uppercase tracking-widest text-sm px-6 py-3 rounded-none font-bold italic transition-all transform hover:-translate-y-0.5 duration-200 shadow-lg shadow-brandRed/20">
+          Claim Free Pass
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-button" class="md:hidden text-white hover:text-brandRed focus:outline-none" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle navigation menu">
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path id="hamburger-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16"></path>
+          <path id="close-icon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobile-menu" class="hidden md:hidden mt-4 pt-4 border-t border-white/10 transition-all duration-300">
+      <ul class="flex flex-col space-y-4 font-display text-xl tracking-wider uppercase pb-4">
+        <li>
+          <a href="index.html" class="block text-brandRed py-2 pl-2 border-l-4 border-brandRed">Home</a>
+        </li>
+        <li>
+          <a href="classes.html" class="block text-gray-300 hover:text-white hover:bg-white/5 py-2 pl-2 transition-all">Classes</a>
+        </li>
+        <li>
+          <a href="contact.html" class="block text-gray-300 hover:text-white hover:bg-white/5 py-2 pl-2 transition-all">Contact</a>
+        </li>
+        <li class="pt-2">
+          <a href="contact.html" class="block text-center bg-brandRed hover:bg-brandRed-hover text-white font-display uppercase tracking-widest text-base py-3 rounded-none font-bold italic transition-all">
+            Claim Free Pass
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <!-- ============================================================================ -->
+    <!-- HERO SECTION: Bold, High-Impact Visual Landing Zone                          -->
+    <!-- Features: Parallax-style overlay, heavy typography, clear direct CTA          -->
+    <!-- ============================================================================ -->
+    <header data-section="hero" class="relative min-h-[85vh] flex items-center justify-center bg-black overflow-hidden py-16 px-4 md:px-8 lg:px-12">
+      <!-- Dark Hero Image Overlay Background -->
+      <div class="absolute inset-0 z-0">
+        <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1920&auto=format&fit=crop" 
+             alt="Elite athletic training facility environment with high-end barbells and steel racks" 
+             class="w-full h-full object-cover object-center opacity-45 scale-105 transform transition duration-[10000ms] ease-out" 
+             loading="eager">
+        <!-- Overlay Gradients for intense focus and text readability -->
+        <div class="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/70 to-black/80"></div>
+        <div class="absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-brandRed/10 to-transparent hidden lg:block"></div>
+      </div>
+
+      <!-- Hero Content Container -->
+      <div class="relative z-10 max-w-5xl mx-auto text-center md:text-left">
+        <!-- Pre-headline tag -->
+        <span class="inline-flex items-center gap-2 bg-brandRed text-white font-display uppercase tracking-widest text-sm font-bold py-1 px-4 mb-6 italic transform -skew-x-12">
+          BUILT FOR RESULTS • BLUFFTON, SC
+        </span>
+        
+        <!-- Massive High-Impact Headline -->
+        <h1 class="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black uppercase tracking-tight italic leading-none mb-6">
+          TRAIN HARD.<br>
+          <span class="text-brandRed drop-shadow-[0_4px_12px_rgba(230,57,70,0.3)]">LIVE LOWCOUNTRY.</span>
+        </h1>
+
+        <!-- High-conversion supporting copy -->
+        <p class="max-w-2xl text-gray-300 text-lg sm:text-xl font-normal leading-relaxed mb-10">
+          No gimmicks. No excuses. Lowcountry Strength is Bluffton’s premier athletic facility dedicated to functional strength, heavy iron, expert-led group classes, and elite personal training.
+        </p>
+
+        <!-- Strong CTA Buttons -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+          <a href="contact.html" class="inline-block text-center bg-brandRed hover:bg-brandRed-hover text-white font-display text-lg uppercase tracking-widest font-bold italic py-4 px-8 rounded-none transition-all transform hover:-translate-y-1 shadow-xl shadow-brandRed/30 focus:ring-4 focus:ring-brandRed">
+            Claim Your Free 3-Day Pass
+          </a>
+          <a href="classes.html" class="inline-block text-center border-2 border-white hover:border-brandRed hover:bg-brandRed hover:text-white text-white font-display text-lg uppercase tracking-widest font-bold italic py-4 px-8 rounded-none transition-all duration-300">
+            View Class Schedule
+          </a>
+        </div>
+
+        <!-- Social Validation/Proof Badge -->
+        <div class="mt-12 pt-8 border-t border-white/10 flex flex-wrap items-center justify-center md:justify-start gap-6 text-sm text-gray-400">
+          <div class="flex items-center gap-1 text-yellow-500">
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+          <span class="font-semibold tracking-wider uppercase">Bluffton’s Top-Rated Community Gym</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- ============================================================================ -->
+    <!-- WHY US: Feature grid showcasing value proposition                            -->
+    <!-- Features: Clean 2x2 grid on mobile/desktop with custom svg icons & highlights-->
+    <!-- ============================================================================ -->
+    <section data-section="features" class="bg-charcoal-light py-20 px-4 md:px-8 lg:px-12 relative overflow-hidden">
+      <!-- Background industrial accent text -->
+      <div class="absolute left-0 top-10 text-9xl font-display font-extrabold text-white/5 uppercase select-none pointer-events-none italic hidden xl:block">
+        RAW POWER
+      </div>
+
+      <div class="max-w-7xl mx-auto relative z-10">
+        <!-- Section Header -->
+        <div class="text-center mb-16">
+          <span class="text-brandRed font-display uppercase tracking-widest text-lg font-bold italic">WHY CHOOSE US</span>
+          <h2 class="font-display text-4xl sm:text-5xl font-black uppercase tracking-tight italic mt-2">
+            WE DON'T DO COMPROMISES.
+          </h2>
+          <div class="w-24 h-1 bg-brandRed mx-auto mt-4"></div>
+          <p class="max-w-2xl mx-auto text-gray-400 mt-4 text-base sm:text-lg">
+            We provide everything you need to crush your goals and reject the commercial corporate gym dynamic. Welcome to pure grit.
+          </p>
+        </div>
+
+        <!-- Features Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          
+          <!-- Card 1: Strength Equipment -->
+          <div class="bg-charcoal border-l-4 border-brandRed p-8 hover:bg-charcoal-dark/50 transition-all duration-300 group hover:-translate-y-2">
+            <div class="w-12 h-12 bg-brandRed/10 text-brandRed flex items-center justify-center mb-6 group-hover:bg-brandRed group-hover:text-white transition-all duration-300">
+              <!-- SVG Dumbbell Icon -->
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+                <circle cx="4" cy="4" r="2" fill="currentColor"></circle>
+                <circle cx="20" cy="20" r="2" fill="currentColor"></circle>
+                <circle cx="20" cy="4" r="2" fill="currentColor"></circle>
+                <circle cx="4" cy="20" r="2" fill="currentColor"></circle>
+              </svg>
+            </div>
+            <h3 class="font-display text-2xl font-bold uppercase italic tracking-wide mb-3">ELITE STRENGTH IRON</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">
+              Power racks, specialized barbells, custom competition plates, and heavy-duty machines built for serious progression.
+            </p>
+          </div>
+
+          <!-- Card 2: Group Classes -->
+          <div class="bg-charcoal border-l-4 border-brandRed p-8 hover:bg-charcoal-dark/50 transition-all duration-300 group hover:-translate-y-2">
+            <div class="w-12 h-12 bg-brandRed/10 text-brandRed flex items-center justify-center mb-6 group-hover:bg-brandRed group-hover:text-white transition-all duration-300">
+              <!-- SVG Group Icon -->
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+              </svg>
+            </div>
+            <h3 class="font-display text-2xl font-bold uppercase italic tracking-wide mb-3">GROUP DYNAMICS</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">
+              Engineered strength and high-intensity hybrid classes. Our professional coaches keep you moving safely and efficiently.
+            </p>
+          </div>
+
+          <!-- Card 3: Personal Training -->
+          <div class="bg-charcoal border-l-4 border-brandRed p-8 hover:bg-charcoal-dark/50 transition-all duration-300 group hover:-translate-y-2">
+            <div class="w-12 h-12 bg-brandRed/10 text-brandRed flex items-center justify-center mb-6 group-hover:bg-brandRed group-hover:text-white transition-all duration-300">
+              <!-- SVG Target Icon -->
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <h3 class="font-display text-2xl font-bold uppercase italic tracking-wide mb-3">ELITE COACHING</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">
+              No cookie-cutter routines. Personalized programming, biomechanics correction, and nutritional frameworks built around your lifestyle.
+            </p>
+          </div>
+
+          <!-- Card 4: Open Early & Late -->
+          <div class="bg-charcoal border-l-4 border-brandRed p-8 hover:bg-charcoal-dark/50 transition-all duration-300 group hover:-translate-y-2">
+            <div class="w-12 h-12 bg-brandRed/10 text-brandRed flex items-center justify-center mb-6 group-hover:bg-brandRed group-hover:text-white transition-all duration-300">
+              <!-- SVG Clock Icon -->
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <h3 class="font-display text-2xl font-bold uppercase italic tracking-wide mb-3">EXTENDED HOURS</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">
+              We align with your schedule. Access the gym early mornings and late nights to keep consistency regardless of shift hours.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================================ -->
+    <!-- CLASS PREVIEW STRIP: Engaging showcase of fitness programs                  -->
+    <!-- Features: Overlapping horizontal grid with a focus CTA directing to internal page -->
+    <!-- ============================================================================ -->
+    <section data-section="class-preview" class="bg-charcoal py-20 px-4 md:px-8 lg:px-12 relative">
+      <div class="max-w-7xl mx-auto">
+        <!-- Flex Container to handle headings + inline CTA on desktop -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+          <div>
+            <span class="text-brandRed font-display uppercase tracking-widest text-lg font-bold italic">FIND YOUR FOCUS</span>
+            <h2 class="font-display text-4xl sm:text-5xl font-black uppercase tracking-tight italic mt-2">
+              ENGINEERED CLASSES FOR EVERY LEVEL
+            </h2>
+            <div class="w-24 h-1 bg-brandRed mt-4"></div>
+          </div>
+          <div class="shrink-0">
+            <a href="classes.html" class="inline-block bg-transparent hover:bg-brandRed text-white hover:text-white border-2 border-brandRed font-display text-lg uppercase tracking-widest font-bold italic py-3 px-8 transition-all duration-300">
+              See All Classes
+            </a>
+          </div>
+        </div>
+
+        <!-- Horizontal dynamic cards grid representing classes -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+          
+          <!-- Class 1: Strength & Conditioning -->
+          <div class="relative group h-96 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=400&auto=format&fit=crop" 
+                 alt="Barbell deadlift execution" 
+                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-60">
+            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent flex flex-col justify-end p-6">
+              <span class="text-brandRed font-display uppercase tracking-wider text-xs font-bold mb-1">STRENGTH</span>
+              <h4 class="font-display text-xl font-bold uppercase tracking-wide">Strength & Conditioning</h4>
+            </div>
+          </div>
+
+          <!-- Class 2: HIIT -->
+          <div class="relative group h-96 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1518310383802-640c2de311b2?q=80&w=400&auto=format&fit=crop" 
+                 alt="High intensity functional training kettlebell swing" 
+                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-60">
+            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent flex flex-col justify-end p-6">
+              <span class="text-brandRed font-display uppercase tracking-wider text-xs font-bold mb-1">METCON</span>
+              <h4 class="font-display text-xl font-bold uppercase tracking-wide">HIIT / Cardiopower</h4>
+            </div>
+          </div>
+
+          <!-- Class 3: Spin / Cycle -->
+          <div class="relative group h-96 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=400&auto=format&fit=crop" 
+                 alt="Indoor athletic cycling track class" 
+                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-60">
+            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent flex flex-col justify-end p-6">
+              <span class="text-brandRed font-display uppercase tracking-wider text-xs font-bold mb-1">CARDIO</span>
+              <h4 class="font-display text-xl font-bold uppercase tracking-wide">Dynamic Spin</h4>
+            </div>
+          </div>
+
+          <!-- Class 4: Yoga & Mobility -->
+          <div class="relative group h-96 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=400&auto=format&fit=crop" 
+                 alt="Stretching and functional mobility exercises" 
+                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-60">
+            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent flex flex-col justify-end p-6">
+              <span class="text-brandRed font-display uppercase tracking-wider text-xs font-bold mb-1">RECOVERY</span>
+              <h4 class="font-display text-xl font-bold uppercase tracking-wide">Yoga & Mobility</h4>
+            </div>
+          </div>
+
+          <!-- Class 5: Beginner Bootcamp -->
+          <div class="relative group h-96 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=400&auto=format&fit=crop" 
+                 alt="Instructor coaching newcomer in the gym" 
+                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-60">
+            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent flex flex-col justify-end p-6">
+              <span class="text-brandRed font-display uppercase tracking-wider text-xs font-bold mb-1">FOUNDATIONS</span>
+              <h4 class="font-display text-xl font-bold uppercase tracking-wide">Beginner Bootcamp</h4>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================================ -->
+    <!-- HOURS SECTION: High readability schedules                                    -->
+    <!-- Features: Dual column cards structure with athletic accent accents          -->
+    <!-- ============================================================================ -->
+    <section data-section="hours" class="bg-charcoal-light py-20 px-4 md:px-8 lg:px-12 relative">
+      <div class="max-w-4xl mx-auto">
+        <!-- Title area -->
+        <div class="text-center mb-12">
+          <span class="text-brandRed font-display uppercase tracking-widest text-lg font-bold italic">OPEN DAILY</span>
+          <h2 class="font-display text-4xl sm:text-5xl font-black uppercase tracking-tight italic mt-2">
+            CONVENIENT HOURS FOR HARD WORKERS
+          </h2>
+          <div class="w-24 h-1 bg-brandRed mx-auto mt-4"></div>
+        </div>
+
+        <!-- Schedule Block Details -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          
+          <!-- Weekdays Card -->
+          <div class="bg-charcoal p-8 border-t-4 border-brandRed text-center hover:shadow-2xl hover:shadow-brandRed/10 transition-all duration-300">
+            <h3 class="font-display text-2xl font-bold uppercase tracking-wider italic text-white mb-4">WEEKDAYS</h3>
+            <p class="text-gray-400 text-sm tracking-widest uppercase mb-2">MONDAY - FRIDAY</p>
+            <p class="font-display text-4xl font-extrabold text-white">5:00 AM <span class="text-brandRed text-2xl">—</span> 10:00 PM</p>
+            <div class="mt-6 text-xs text-gray-500 font-semibold tracking-wider uppercase">
+              *Group sessions running continuously. Open gym active.
+            </div>
+          </div>
+
+          <!-- Weekends Card -->
+          <div class="bg-charcoal p-8 border-t-4 border-brandRed text-center hover:shadow-2xl hover:shadow-brandRed/10 transition-all duration-300">
+            <h3 class="font-display text-2xl font-bold uppercase tracking-wider italic text-white mb-4">WEEKENDS</h3>
+            <p class="text-gray-400 text-sm tracking-widest uppercase mb-2">SATURDAY - SUNDAY</p>
+            <p class="font-display text-4xl font-extrabold text-white">7:00 AM <span class="text-brandRed text-2xl">—</span> 7:00 PM</p>
+            <div class="mt-6 text-xs text-gray-500 font-semibold tracking-wider uppercase">
+              *Weekend seminars and open platform training active.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================================ -->
+    <!-- FINAL CALL TO ACTION BANNER: Conversions focused                             -->
+    <!-- Features: Striking background color block, strong typography driving to page -->
+    <!-- ============================================================================ -->
+    <section data-section="cta" class="relative bg-black py-24 px-4 md:px-8 lg:px-12 overflow-hidden">
+      <!-- Background dynamic lighting -->
+      <div class="absolute -top-40 -left-40 w-96 h-96 bg-brandRed/10 rounded-full blur-3xl"></div>
+      <div class="absolute -bottom-40 -right-40 w-96 h-96 bg-brandRed/10 rounded-full blur-3xl"></div>
+
+      <div class="max-w-4xl mx-auto text-center relative z-10">
+        <span class="inline-block bg-brandRed text-white font-display uppercase tracking-widest text-sm font-bold py-1 px-4 mb-6 italic transform -skew-x-12">
+          LIMITED PASSES AVAILABLE THIS WEEK
+        </span>
+        <h2 class="font-display text-4xl sm:text-5xl md:text-6xl font-black uppercase tracking-tight italic leading-tight mb-6">
+          NO OBLIGATIONS.<br>JUST RAW <span class="text-brandRed">RESULTS.</span>
+        </h2>
+        <p class="max-w-2xl mx-auto text-gray-300 text-base sm:text-lg mb-10 leading-relaxed">
+          Ready to experience Lowcountry Strength? Claim your 100% free 3-day pass today. Meet our coaches, test our elite training floor, and experience what real strength can do.
+        </p>
+        <div>
+          <a href="contact.html" class="inline-block bg-brandRed hover:bg-brandRed-hover text-white font-display text-xl uppercase tracking-widest font-bold italic py-5 px-10 rounded-none transition-all transform hover:-translate-y-1 shadow-2xl shadow-brandRed/40">
+            Get Your Free 3-Day Pass Now
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================================ -->
+  <!-- FOOTER SECTION                                                               -->
+  <!-- Features: Repeat nav links, absolute local details, strict 2026 year rule   -->
+  <!-- ============================================================================ -->
+  <footer data-section="footer" class="bg-charcoal-dark border-t border-white/10 py-16 px-4 md:px-8 lg:px-12">
+    <div class="max-w-7xl mx-auto">
+      
+      <!-- Top Section: Brand + Links -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+        
+        <!-- Column 1: Brand Info -->
+        <div>
+          <a href="index.html" class="inline-block focus:outline-none mb-6">
+            <span class="font-display text-2xl font-extrabold tracking-wider italic text-white">
+              LOWCOUNTRY<span class="text-brandRed">STRENGTH</span>
+            </span>
+          </a>
+          <p class="text-gray-400 text-sm leading-relaxed mb-4 max-w-sm">
+            Reject mediocrity. Our community-driven facility supports and pushes athletes of all backgrounds to elevate their daily physical capabilities.
+          </p>
+          <p class="text-white font-bold text-sm tracking-wider uppercase">
+            BLUFFTON, SC
+          </p>
+        </div>
+
+        <!-- Column 2: Navigation Links -->
+        <div>
+          <h4 class="font-display text-lg font-bold uppercase tracking-wider text-white mb-6">NAVIGATION</h4>
+          <ul class="space-y-3 font-semibold text-sm">
+            <li>
+              <a href="index.html" class="text-brandRed transition-colors">Home</a>
+            </li>
+            <li>
+              <a href="classes.html" class="text-gray-400 hover:text-white transition-colors">Classes</a>
+            </li>
+            <li>
+              <a href="contact.html" class="text-gray-400 hover:text-white transition-colors">Contact</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Localized Info -->
+        <div>
+          <h4 class="font-display text-lg font-bold uppercase tracking-wider text-white mb-6">OUR HEADQUARTERS</h4>
+          <p class="text-gray-400 text-sm leading-relaxed mb-2">
+            Bluffton, SC (Near Highway 278)
+          </p>
+          <p class="text-gray-400 text-sm mb-4">
+            Phone: (843) 555-0195
+          </p>
+          <a href="contact.html" class="inline-flex items-center text-brandRed font-display uppercase tracking-widest text-sm font-bold italic hover:underline">
+            Get Directions
+            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar: Legal + Copyright -->
+      <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="text-gray-500 text-xs">
+          &copy; 2026 Lowcountry Strength. All rights reserved. Built for raw development.
+        </p>
+        <div class="flex gap-6 text-xs text-gray-500">
+          <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+          <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ============================================================================ -->
+  <!-- JAVASCRIPT: Mobile Menu Toggle                                               -->
+  <!-- ============================================================================ -->
+  
+
+  <script src="script.js"></script>
+</body>
+</html>
