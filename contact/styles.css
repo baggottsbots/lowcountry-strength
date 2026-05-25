@@ -1,0 +1,23 @@
+/* Custom Tailwind config override via pure CSS style block */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1A1A1A;
+            color: #FFFFFF;
+        }
+        .font-oswald {
+            font-family: 'Oswald', sans-serif;
+        }
+        /* Custom scrollbar styling for high-end dark theme design */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1A1A1A;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #E63946;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #C52233;
+        }
